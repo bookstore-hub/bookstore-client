@@ -1,0 +1,10 @@
+.openapi-generator-ignore
+apis/AuthorControllerApi.ts
+apis/BookControllerApi.ts
+apis/index.ts
+index.ts
+models/GetData.ts
+models/GetListedData.ts
+models/NewData.ts
+models/index.ts
+runtime.ts
