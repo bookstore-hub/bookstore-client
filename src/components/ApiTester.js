@@ -11,15 +11,15 @@ const endpoints = {
         { path: "/book/search", description: "Faire une recherche sur un livre", queryPlaceholder: "ex. title=Ulysse et/ou author=James Joyce" }
     ],
     POST: [
-        { path: "/book", description: "Ajouter un nouveau livre", bodyPlaceholder: 'ex. {"title": "Ulysse", "synopsis": "Une journée, en 1904, dans la vie des quelques habitants de Dublin, qui vaquent à leurs occupations.", dateOfPublication": "1922-05-27", "authors": ["James Joyce"]}' },
-        { path: "/author", description: "Ajouter un nouvel auteur", queryPlaceholder: "ex. authorName=John Doe" }
+        { path: "/book", description: "Ajouter un nouveau livre", bodyPlaceholder: 'ex. {"title": "Ulysse 2", "dateOfPublication": "2025-06-09","synopsis": "La fin des aventures de Ulysse","numberOfPages": 120,"authors": ["James Joyce"]}' },
+        { path: "/author", description: "Ajouter un nouvel auteur", bodyPlaceholder: 'ex. {"authorName": "John Doe"}'}
     ],
     DELETE: [
         { path: "/book", description: "Supprimer un livre", queryPlaceholder: "ex. bookCode=AZ93H" },
         { path: "/author", description: "Supprimer un auteur", queryPlaceholder: "ex. authorCode=D462L" }
     ],
     PUT: [
-        { path: "/book", description: "Mettre à jour un livre", queryPlaceholder: "ex. bookCode=AZ93H", bodyPlaceholder: 'ex. {"title": "Ulysse 2 le retour (titre modifié) ", "synopsis": "Une journée, en 1904, dans la vie des quelques habitants de Dublin, qui vaquent à leurs occupations.", dateOfPublication": "1922-05-27", "authors": ["James Joyce"]}' },
+        { path: "/book", description: "Mettre à jour un livre", queryPlaceholder: "ex. bookCode=AZ93H", bodyPlaceholder: 'ex. {"title": "Ulysse 2 le retour (titre modifié)", "dateOfPublication": "2025-06-09","synopsis": "La fin des aventures de Ulysse","numberOfPages": 120,"authors": ["James Joyce"]}' },
         { path: "/author", description: "Modifier un auteur", queryPlaceholder: "ex. authorCode=D462L&authorName=Nom mis à jour"},
         { path: "/author/addToBook", description: "Ajouter un auteur à un livre", queryPlaceholder: "ex. authorCode=D462L&bookCode=AZ93H" },
         { path: "/author/removeFromBook", description: "Retirer un auteur d'un livre", queryPlaceholder: "ex. authorCode=D462L&bookCode=AZ93H" }
@@ -91,7 +91,7 @@ const ApiTester = () => {
 
             <br/>
 
-            {(method !== 'POST' || selectedEndpoint.path === "/author") && ( 
+            {(method !== 'POST') && ( 
                 <div>
                     <p>Query param(s) :</p>
                     <p>{selectedEndpoint.queryPlaceholder}</p> {}
@@ -108,7 +108,7 @@ const ApiTester = () => {
             <br/>
             <br/>
 
-            {((method === 'POST' || method === 'PUT') && selectedEndpoint.path === "/book") && (
+            {((method === 'POST' || method === 'PUT')) && (
                 <div>
                     <p>Body :</p>
                     <div>
